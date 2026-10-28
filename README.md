@@ -68,16 +68,57 @@ Display original color image, histogram, enhanced image, and enhanced histogram 
 ---
 
 ## Program
+```
+import cv2
+import matplotlib.pyplot as plt
+
+image = cv2.imread('exp3/rose.png')
+
+gray_image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+
+low_contrast = cv2.convertScaleAbs(gray_image, alpha=0.5, beta=0)
+
+high_contrast = cv2.convertScaleAbs(gray_image, alpha=2.0, beta=0)
+
+equalized_image = cv2.equalizeHist(gray_image)
+
+plt.figure(figsize=(12,8))
+
+plt.subplot(2,2,1)
+plt.imshow(gray_image, cmap='gray')
+plt.title('Original Image')
+plt.axis('off')
+
+plt.subplot(2,2,2)
+plt.imshow(low_contrast, cmap='gray')
+plt.title('Low Contrast Image')
+plt.axis('off')
+
+plt.subplot(2,2,3)
+plt.imshow(high_contrast, cmap='gray')
+plt.title('High Contrast Image')
+plt.axis('off')
+
+plt.subplot(2,2,4)
+plt.imshow(equalized_image, cmap='gray')
+plt.title('Histogram Equalized Image')
+plt.axis('off')
+
+plt.tight_layout()
+plt.show()
+```
 
 ### Developed By:
-**Name:** ____________________________  
-
-### Register No:
+**Name:** Santhosh K
+### Register No: 212225040379
 ____________________________  
 
 ---
 
 ##  Output
+
+<img width="1189" height="791" alt="image" src="https://github.com/user-attachments/assets/583cf2b4-253a-4b07-a738-e9dbfd94ce04" />
+
 
 ### Grayscale Histogram Equalization
 
